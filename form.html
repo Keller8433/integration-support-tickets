@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Raise a ticket</title>
+<link rel="stylesheet" href="./style.css">
+<script src="https://p.trellocdn.com/power-up.min.js"></script>
+<script src="./config.js"></script></head>
+<body><div class="wrap">
+<header><h1>Raise an integration ticket</h1>
+<p>Aggregator → channel issues for Rich, Marina and Lynsey. Fields marked <span style="color:var(--accent)">*</span> are required.</p></header>
+
+<form id="f" novalidate>
+<div class="card"><h2>Priority <span class="req" style="color:var(--accent)">*</span></h2>
+  <div class="prio" id="prio"></div>
+  <div class="hint">P1 = channel down, orders blocked or compliance risk. P1 tickets go straight to High Priority and alert the team.</div>
+</div>
+
+<div class="card"><h2>The issue</h2>
+  <label for="title">Ticket title<span class="req">*</span></label>
+  <input id="title" placeholder="Kaufland | DE | Stock not syncing" maxlength="200">
+  <div class="hint">Channel | Country | Issue</div>
+  <div style="height:12px"></div>
+  <label for="desc">Description<span class="req">*</span></label>
+  <textarea id="desc" placeholder="What’s wrong? What should happen instead? When did it start? Any error messages?"></textarea>
+</div>
+
+<div class="card"><h2>Details</h2>
+  <div class="grid" id="dropdowns"></div>
+  <div style="height:12px"></div>
+  <div class="grid">
+    <div><label for="bp">BP name</label><input id="bp" placeholder="As in the Global Revenue Dashboard"></div>
+    <div><label for="listings">No. of listings affected</label><input id="listings" type="number" min="0" inputmode="numeric"></div>
+    <div><label for="due">Date needed by</label><input id="due" type="date"></div>
+  </div>
+  <div style="height:12px"></div>
+  <label for="skus">SKU examples</label><input id="skus" placeholder="e.g. W-7500A, HF-1234">
+  <div style="height:12px"></div>
+  <label for="biz">Business case – what happens if this isn’t fixed?</label><textarea id="biz" style="min-height:70px"></textarea>
+  <div style="height:12px"></div>
+  <label for="file">SKU file / screenshot (optional)</label><input id="file" type="file">
+</div>
+
+<div class="bar">
+  <div class="route" id="route"></div>
+  <div style="display:flex;gap:8px;align-items:center">
+    <span class="err" id="msg" role="status"></span>
+    <button type="button" class="ghost" id="cancel">Cancel</button>
+    <button type="submit" class="primary" id="submit" disabled>Submit ticket</button>
+  </div>
+</div>
+</form></div>
+<script src="./form.js"></script>
+</body></html>
