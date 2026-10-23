@@ -1,0 +1,19 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Integration Support Tickets</title>
+<script src="https://p.trellocdn.com/power-up.min.js"></script>
+<script src="./config.js"></script></head>
+<body><script>
+var ICON = new URL("./icon.svg", window.location.href).href;
+TrelloPowerUp.initialize({
+  "board-buttons": function () {
+    return [{
+      icon: { dark: ICON, light: ICON },
+      text: "Submit Ticket",
+      condition: "always",
+      callback: function (t) {
+        return t.modal({ url: "./form.html", title: "Raise an integration ticket", height: 760, fullscreen: false });
+      }
+    }];
+  }
+}, { appKey: window.TICKETS_CONFIG.appKey, appName: window.TICKETS_CONFIG.appName });
+</script></body></html>
